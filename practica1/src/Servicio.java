@@ -76,8 +76,8 @@ abstract public class Servicio{
 
     }
 
-    public String bienvenida(){
-        //System.out.println("Bienvenido/a");
+    public String bienvenida(String u){
+        return "Hola " + u + ", bienvenido a " + getNombre();
     }
 
 

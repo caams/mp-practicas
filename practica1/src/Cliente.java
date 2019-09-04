@@ -6,18 +6,15 @@
 public class Cliente{
 
     private String nombre;
-    private String usuario;
     private int dinero;
     
     /**
      * Define el estado inicial del cliente.
      * @param nombre el nombre del cliente.
-     * @param usuario el usuario del cliente.
      * @param dinero la cantidad de dinero disponible del cliente.
      */
-    public Cliente(String nombre, String usuario, int dinero){
+    public Cliente(String nombre, int dinero){
         this.nombre = nombre;
-        this.usuario = usuario;
         this.dinero = dinero;
     }
 
@@ -35,22 +32,6 @@ public class Cliente{
      */
     public void setNombre(String nombre){
         this.nombre = nombre;
-    }
-
-    /**
-     * Regresa el usuario del cliente.
-     * @return el usuario del cliente.
-     */
-    public String getUsuario(){
-        return usuario;
-    }
-
-    /**
-     * Define el usuario del cliente.
-     * @param usuario el nuevo usuario del cliente.
-     */
-    public void setUsuario(String usuario){
-        this.usuario = usuario;
     }
 
     /**
