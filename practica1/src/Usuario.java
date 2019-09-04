@@ -1,50 +1,50 @@
 
 /**
- * Clase para representar clientes. Un cliente tiene un
+ * Clase para representar usuarios. Un usuario tiene un
  * nombre, un usuario y cierta cantidad de dinero.
  */
-public class Cliente{
+public class Usuario{
 
     private String nombre;
     private int dinero;
     
     /**
-     * Define el estado inicial del cliente.
-     * @param nombre el nombre del cliente.
-     * @param dinero la cantidad de dinero disponible del cliente.
+     * Define el estado inicial del usuario.
+     * @param nombre el nombre del usuario.
+     * @param dinero la cantidad de dinero disponible del usuario.
      */
-    public Cliente(String nombre, int dinero){
+    public Usuario(String nombre, int dinero){
         this.nombre = nombre;
         this.dinero = dinero;
     }
 
     /**
-     * Regresa el nombre del cliente.
-     * @return el nombre del cliente.
+     * Regresa el nombre del usuario.
+     * @return el nombre del usuario.
      */
     public String getNombre(){
         return nombre;
     }
 
     /**
-     * Define el nombre del cliente.
-     * @param nombre el nuevo nombre del cliente.
+     * Define el nombre del usuario.
+     * @param nombre el nuevo nombre del usuario.
      */
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
 
     /**
-     * Regresa el dinero del cliente-
-     * @return el dinero del cliente.
+     * Regresa el dinero del usuario-
+     * @return el dinero del usuario.
      */
     public int getDinero(){
         return dinero;
     }
 
     /**
-     * Define el dinero del cliente.
-     * @param dinero el nuevo dinero del cliente.
+     * Define el dinero del usuario.
+     * @param dinero el nuevo dinero del usuario.
      */
     public void setDinero(int dinero){
         this.dinero = dinero;
