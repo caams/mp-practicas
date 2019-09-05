@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-abstract public class Servicio{
+abstract public class Servicio implements InterfazServicio{
 
     private String nombre;
     private int costo;
@@ -55,15 +55,15 @@ abstract public class Servicio{
     }
 
     public String cancelarServicio(){
-
+        return "";
     }
 
     public String notificarCobro(){
-
+        return "";
     }
 
     public String recomendar(){
-
+        return "";
     }
 
     public String bienvenida(String u){
