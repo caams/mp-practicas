@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-abstract public class Servicio implements InterfazServicio{
+public class Servicio implements InterfazSujeto {
 
     protected String nombre;
     protected int costo;
@@ -58,10 +58,17 @@ abstract public class Servicio implements InterfazServicio{
         return suscriptores;
     }
 
-    public abstract void agregar(Usuario s);
+    public void agregar(Usuario s) {
+        suscriptores.add(s);
+    }
 
-    public abstract void remover(Usuario s);
+    public void remover(Usuario s) {
+        suscriptores.remove(s);
+    }
 
-    public abstract void notificar();
+    public void notificar() {
+        for (Usuario s : suscriptores)
+            s.update();
+    }
 
 }

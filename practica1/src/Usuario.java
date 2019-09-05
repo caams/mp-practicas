@@ -55,7 +55,7 @@ public class Usuario implements Observer{
         this.dinero = dinero;
     }
 
-    public void update(){
+    public void update(Observable o, Object arg){
         
     }
 
