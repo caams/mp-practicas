@@ -1,10 +1,10 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 abstract public class Servicio implements InterfazServicio{
 
-    private String nombre;
-    private int costo;
-    private ArrayList<String> suscriptores;
+    protected String nombre;
+    protected int costo;
+    protected LinkedList<Usuario> suscriptores;
 
     /**
      * Define el estado inicial de cada servicio.
@@ -12,7 +12,7 @@ abstract public class Servicio implements InterfazServicio{
      * @param costo el costo del servicio.
      * @param suscriptores la lista de suscriptores al servicio.
      */
-    public Servicio(String nombre, int costo, ArrayList<String> suscriptores){
+    public Servicio(String nombre, int costo, LinkedList<Usuario> suscriptores){
         this.nombre = nombre;
         this.costo = costo;
         this.suscriptores = suscriptores;
@@ -50,25 +50,18 @@ abstract public class Servicio implements InterfazServicio{
         this.costo = costo;
     }
 
-    public void cobrar(String usuario){
-
+    /**
+     * Regresa la lista de los suscriptores.
+     * @return la lista de los suscriptores.
+     */
+    public LinkedList<Usuario> getSuscriptores(){
+        return suscriptores;
     }
 
-    public String cancelarServicio(){
-        return "";
-    }
+    public abstract String remover();
 
-    public String notificarCobro(){
-        return "";
-    }
+    public abstract String notificar();
 
-    public String recomendar(){
-        return "";
-    }
-
-    public String bienvenida(String u){
-
-    }
-
+    public abstract String agregar();
 
 }
