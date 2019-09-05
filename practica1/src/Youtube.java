@@ -1,9 +1,7 @@
-import java.util.LinkedList;
-
 public class Youtube extends Servicio {
 
-    public Youtube(String nombre, int costo, LinkedList<Usuario> suscriptores) {
-        super(nombre, costo, suscriptores);
+    public Youtube(String nombre, int costo) {
+        super(nombre, costo);
     }
 
     @Override public String bienvenida(Usuario u) {
@@ -21,19 +19,16 @@ public class Youtube extends Servicio {
 
     }
 
-    @Override public String remover() {
+    @Override public void agregar(Usuario s) {
         // TODO Auto-generated method stub
-        return null;
     }
 
-    @Override public String notificar() {
+    @Override public void remover(Usuario s) {
         // TODO Auto-generated method stub
-        return null;
     }
 
-    @Override public String agregar() {
+    @Override public void notificar() {
         // TODO Auto-generated method stub
-        return null;
     }
 
 }

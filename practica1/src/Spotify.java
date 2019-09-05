@@ -20,19 +20,16 @@ public class Spotify extends Servicio {
         // TODO Auto-generated method stub
 
     }
-
-    @Override public String remover() {
+    
+    @Override public void agregar(Usuario s) {
         // TODO Auto-generated method stub
-        return null;
     }
 
-    @Override public String notificar() {
+    @Override public void remover(Usuario s) {
         // TODO Auto-generated method stub
-        return null;
     }
 
-    @Override public String agregar() {
+    @Override public void notificar() {
         // TODO Auto-generated method stub
-        return null;
     }
 }

@@ -22,18 +22,15 @@ public class AmazonPrimeVideo extends Servicio{
 
     }
 
-    @Override public String remover() {
+    @Override public void remover(Usuario s) {
         // TODO Auto-generated method stub
-        return null;
     }
 
-    @Override public String notificar() {
+    @Override public void notificar(Usuario s) {
         // TODO Auto-generated method stub
-        return null;
     }
 
-    @Override public String agregar() {
+    @Override public void agregar(Usuario s) {
         // TODO Auto-generated method stub
-        return null;
     }
 }

@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class Netflix extends Servicio{
+public class Netflix extends Servicio {
 
     public Netflix(String nombre, int costo, LinkedList<Usuario> suscriptores) {
         super(nombre, costo, suscriptores);
@@ -22,18 +22,17 @@ public class Netflix extends Servicio{
 
     }
 
-    @Override public String remover() {
-        // TODO Auto-generated method stub
-        return null;
+    @Override public void agregar(Usuario s) {
+        suscriptores.add(s);
     }
 
-    @Override public String notificar() {
-        // TODO Auto-generated method stub
-        return null;
+    @Override public void remover(Usuario s) {
+        System.out.println("Gracias por contratar Netflix.");
+        suscriptores.remove(s);
     }
 
-    @Override public String agregar() {
-        // TODO Auto-generated method stub
-        return null;
+    @Override public void notificar() {
+        for (Usuario u : suscriptores)
+            u.update();
     }
 }

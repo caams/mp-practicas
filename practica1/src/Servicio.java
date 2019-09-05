@@ -12,10 +12,10 @@ abstract public class Servicio implements InterfazServicio{
      * @param costo el costo del servicio.
      * @param suscriptores la lista de suscriptores al servicio.
      */
-    public Servicio(String nombre, int costo, LinkedList<Usuario> suscriptores){
+    public Servicio(String nombre, int costo){
         this.nombre = nombre;
         this.costo = costo;
-        this.suscriptores = suscriptores;
+        suscriptores = new LinkedList<Usuario>();
     }
 
     /**
@@ -58,10 +58,10 @@ abstract public class Servicio implements InterfazServicio{
         return suscriptores;
     }
 
-    public abstract String remover();
+    public abstract void agregar(Usuario s);
 
-    public abstract String notificar();
+    public abstract void remover(Usuario s);
 
-    public abstract String agregar();
+    public abstract void notificar();
 
 }
