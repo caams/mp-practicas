@@ -4,7 +4,7 @@ abstract public class Servicio implements InterfazServicio{
 
     protected String nombre;
     protected int costo;
-    protected LinkedList<Usuario> suscriptores = new LinkedList<Usuario>();
+    protected LinkedList<Usuario> suscriptores;
 
     /**
      * Define el estado inicial de cada servicio.
