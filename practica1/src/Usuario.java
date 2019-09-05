@@ -5,7 +5,7 @@ import java.util.Observer;
  * Clase para representar usuarios. Un usuario tiene un
  * nombre, un usuario y cierta cantidad de dinero.
  */
-public class Usuario implements Observer{
+public class Usuario implements Observer {
 
     private String nombre;
     private int dinero;

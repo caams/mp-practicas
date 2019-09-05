@@ -1,4 +1,4 @@
-public class Youtube extends Servicio {
+public class Youtube extends Servicio implements InterfazServicio {
 
     public Youtube(String nombre, int costo) {
         super(nombre, costo);
@@ -16,19 +16,5 @@ public class Youtube extends Servicio {
 
     @Override public void cobrar() {
         // TODO Auto-generated method stub
-
     }
-
-    @Override public void agregar(Usuario s) {
-        // TODO Auto-generated method stub
-    }
-
-    @Override public void remover(Usuario s) {
-        // TODO Auto-generated method stub
-    }
-
-    @Override public void notificar() {
-        // TODO Auto-generated method stub
-    }
-
 }

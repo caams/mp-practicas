@@ -1,8 +1,6 @@
-import java.util.LinkedList;
+public class AmazonPrimeVideo extends Servicio implements InterfazServicio {
 
-public class AmazonPrimeVideo extends Servicio implements InterfazServicio{
-
-    public AmazonPrimeVideo(String nombre, int costo, LinkedList<Usuario> suscriptores) {
+    public AmazonPrimeVideo(String nombre, int costo) {
         super(nombre, costo);
     }
 
