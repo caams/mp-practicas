@@ -1,8 +1,8 @@
 import java.util.LinkedList;
 
-public class Spotify extends Servicio {
+public class Youtube extends Servicio {
 
-    public Spotify(String nombre, int costo, LinkedList<Usuario> suscriptores) {
+    public Youtube(String nombre, int costo, LinkedList<Usuario> suscriptores) {
         super(nombre, costo, suscriptores);
     }
 
@@ -35,4 +35,5 @@ public class Spotify extends Servicio {
         // TODO Auto-generated method stub
         return null;
     }
+
 }
