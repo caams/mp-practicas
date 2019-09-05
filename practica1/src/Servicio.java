@@ -49,16 +49,6 @@ abstract public class Servicio{
     public void setCosto(int costo) {
         this.costo = costo;
     }
-    
-    /*
-    public ArrayList<String> getSuscriptores(){
-        return suscriptores;
-    }
-
-    public ArrayList<String> setSuscriptores(){
-        this.suscriptores = suscriptores;
-    }
-    */
 
     public void cobrar(String usuario){
 
@@ -77,7 +67,7 @@ abstract public class Servicio{
     }
 
     public String bienvenida(String u){
-        return "Hola " + u + ", bienvenido a " + getNombre();
+
     }
 
 

@@ -1,12 +1,17 @@
-
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 /**
  * Clase para representar usuarios. Un usuario tiene un
  * nombre, un usuario y cierta cantidad de dinero.
  */
-public class Usuario{
+public class Usuario implements Observer{
 
     private String nombre;
     private int dinero;
+    private ArrayList<String> suscripciones;
+    boolean premium = false;
+    
     
     /**
      * Define el estado inicial del usuario.
@@ -48,6 +53,10 @@ public class Usuario{
      */
     public void setDinero(int dinero){
         this.dinero = dinero;
+    }
+
+    public void update(Observable o, Object arg){
+        
     }
 
     public void suscribir(String servicio){
