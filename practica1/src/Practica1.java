@@ -7,10 +7,10 @@ public class Practica1{
         
         System.out.println("Empezando simulación...");
         
-        Usuario Ana = new Usuario("Alicia", 500);
-        Usuario Bob = new Usuario("Bob", 40);
-        Usuario Cesar = new Usuario("César", 40);
-        Usuario Diego = new Usuario("Diego", 80);
-        Usuario Erika = new Usuario("Erika", 300);
+        Usuario Alicia = new Usuario("Alicia", 500, null);
+        Usuario Bob = new Usuario("Bob", 40, null);
+        Usuario Cesar = new Usuario("César", 40, null);
+        Usuario Diego = new Usuario("Diego", 80, null);
+        Usuario Erika = new Usuario("Erika", 300, null);
     }
 }

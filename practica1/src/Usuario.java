@@ -1,26 +1,29 @@
-import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
+//import java.util.Observable;
+//import java.util.Observer;
 /**
  * Clase para representar usuarios. Un usuario tiene un
  * nombre, un usuario y cierta cantidad de dinero.
  */
-public class Usuario implements Observer{
+public class Usuario implements InterfazObservador{
 
+    /* Nombre del usuario. */
     private String nombre;
+    /* Cantidad de dinero del usuario. */
     private int dinero;
-    private ArrayList<String> suscripciones;
-    boolean premium = false;
+    /* Servicios a los que el usuario está suscrito. */
+    private Servicio servicio;
+    /* Variable que nos dice si es usuario premium o no. */
+    private boolean premium;
+    /* Estado del servicio al que está suscrito el usuario. */
+    private String estadoServicio:
     
     
-    /**
-     * Define el estado inicial del usuario.
-     * @param nombre el nombre del usuario.
-     * @param dinero la cantidad de dinero disponible del usuario.
-     */
-    public Usuario(String nombre, int dinero){
+    
+    public Usuario(String nombre, int dinero, Servicio servicio){
         this.nombre = nombre;
         this.dinero = dinero;
+        this.servicio = servicio;
+        premium = false;
     }
 
     /**
@@ -40,7 +43,7 @@ public class Usuario implements Observer{
     }
 
     /**
-     * Regresa el dinero del usuario-
+     * Regresa el dinero del usuario.
      * @return el dinero del usuario.
      */
     public int getDinero(){
@@ -55,15 +58,16 @@ public class Usuario implements Observer{
         this.dinero = dinero;
     }
 
-    public void update(Observable o, Object arg){
+    @Override
+    public void update(){
         
     }
 
-    public void suscribir(String servicio){
-
+    public void suscribir(Servicio servicio){
+        servicio.agregar(this);
     }
 
-    public void cancelarServicio(String servicio){
-        
+    public void cancelarServicio(Servicio servicio){
+        servicio.remover(this);
     }
 }
