@@ -14,8 +14,8 @@ public class Usuario implements InterfazObservador{
     private Servicio servicio;
     /* Variable que nos dice si es usuario premium o no. */
     private boolean premium;
-    /* Estado del servicio al que está suscrito el usuario. */
-    private String estadoServicio:
+    /* Estado del servicio (o recomendaciones) al que está suscrito el usuario. */
+    private String recomendacion:
     
     
     
@@ -60,7 +60,7 @@ public class Usuario implements InterfazObservador{
 
     @Override
     public void update(){
-        
+        recomendacion = servicio.getRecomendacion();
     }
 
     public void suscribir(Servicio servicio){
