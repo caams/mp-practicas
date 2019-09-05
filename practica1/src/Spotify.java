@@ -1,9 +1,9 @@
 import java.util.LinkedList;
 
-public class Spotify extends Servicio {
+public class Spotify extends Servicio implements InterfazServicio {
 
     public Spotify(String nombre, int costo, LinkedList<Usuario> suscriptores) {
-        super(nombre, costo, suscriptores);
+        super(nombre, costo);
     }
 
     @Override public String bienvenida(Usuario u) {
@@ -18,21 +18,5 @@ public class Spotify extends Servicio {
 
     @Override public void cobrar() {
         // TODO Auto-generated method stub
-
-    }
-
-    @Override public String remover() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override public String notificar() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override public String agregar() {
-        // TODO Auto-generated method stub
-        return null;
     }
 }
