@@ -1,8 +1,11 @@
+/**
+ * Interfaz que define el comportamiento en común de los servicios.
+ */
 public interface InterfazServicio {
 
-    public String bienvenida(Usuario u);
+    public void bienvenida(Usuario u);
 
-    public String recomendar(Usuario u);
+    public void recomendar(Usuario u, int dia);
 
-    public void cobrar();
+    public void cobrar(Usuario u, int dia);
 }

@@ -1,5 +1,7 @@
+import java.util.LinkedList;
 //import java.util.Observable;
 //import java.util.Observer;
+
 /**
  * Clase para representar usuarios. Un usuario tiene un
  * nombre, un usuario y cierta cantidad de dinero.
@@ -13,17 +15,24 @@ public class Usuario implements InterfazObservador{
     /* Servicios a los que el usuario está suscrito. */
     private Servicio servicio;
     /* Variable que nos dice si es usuario premium o no. */
-    private boolean premium;
+    private LinkedList<Servicio> suscripciones;
     /* Estado del servicio (o recomendaciones) al que está suscrito el usuario. */
     private String recomendacion;
+
+    private LinkedList<Integer> planes;
     
     
-    
-    public Usuario(String nombre, int dinero, Servicio servicio){
+    /**
+     * 
+     * @param nombre
+     * @param dinero
+     * @param servicio
+     */
+    public Usuario(String nombre, int dinero){
         this.nombre = nombre;
         this.dinero = dinero;
-        this.servicio = servicio;
-        premium = false;
+        this.suscripciones = new LinkedList<Servicio>(); 
+        this.planes = new LinkedList<Integer>();        
     }
 
     /**
@@ -56,6 +65,14 @@ public class Usuario implements InterfazObservador{
      */
     public void setDinero(int dinero){
         this.dinero = dinero;
+    }
+
+    public LinkedList<Servicio> getSuscripciones(){
+        return this.suscripciones;
+    }
+
+    public LinkedList<Integer> getPlanes(){
+        return this.planes;
     }
 
     @Override

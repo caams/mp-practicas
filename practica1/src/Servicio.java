@@ -1,10 +1,11 @@
 import java.util.LinkedList;
 
-public class Servicio implements InterfazSujeto {
+public abstract class Servicio implements InterfazServicio{
 
     protected String nombre;
     protected int costo;
     protected LinkedList<Usuario> suscriptores;
+    String recomendacion;
 
     /**
      * Define el estado inicial de cada servicio.
@@ -38,17 +39,20 @@ public class Servicio implements InterfazSujeto {
      * Regresa el costo del servicio.
      * @return el costo del servicio.
      */
+    
     public int getCosto(){
         return costo;
     }
 
-    /**
+    /** 
      * Define el costo del servicio.
      * @param costo el nuevo costo del servicio.
      */
+    
     public void setCosto(int costo) {
         this.costo = costo;
     }
+    
 
     /**
      * Regresa la lista de los suscriptores.
@@ -57,6 +61,17 @@ public class Servicio implements InterfazSujeto {
     public LinkedList<Usuario> getSuscriptores(){
         return suscriptores;
     }
+
+    public String getRecomendacion(){
+        return recomendacion;
+    }
+
+    public void setRecomendacion(String r){
+        recomendacion = r;
+        //System.out.println("\nTe recomendamos " + r 
+        //+ ". Disfrútalo en " + this.nombre + ".");        
+    }
+
 
     public void agregar(Usuario s) {
         suscriptores.add(s);
@@ -70,5 +85,29 @@ public class Servicio implements InterfazSujeto {
         for (Usuario s : suscriptores)
             s.update();
     }
+
+    @Override 
+    public void recomendar(Usuario u, int dia){
+        //String m = (u.getNombre() + "! Te recomendamos " + this.getRecomendacion()
+          //          + ", disfrútalo en " + this.nombre);
+        String mensaje = String.format("¡Hey %s! %s", u.getNombre(),
+                                         this.getRecomendacion(u, dia));
+    }
+
+    @Override
+    public void bienvenida(Usuario u) {
+        
+    }
+
+    @Override
+     public void cobrar(Usuario u, int dia){
+        if(dia == 1)
+            return;
+        
+    }
+
+    public abstract int getPrecio(int plan);
+    public abstract String recomendacionDiaria(int dia);
+
 
 }
