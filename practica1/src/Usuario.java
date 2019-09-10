@@ -16,17 +16,16 @@ public class Usuario implements InterfazObservador{
     private Servicio servicio;
     /* Variable que nos dice si es usuario premium o no. */
     private LinkedList<Servicio> suscripciones;
-    /* Estado del servicio (o recomendaciones) al que está suscrito el usuario. */
+    /* Estado del servicio (o recomendaciones) que recibe el usuario. */
     private String recomendacion;
-
+    /* Lista de planes contratados. */
     private LinkedList<Integer> planes;
     
     
     /**
-     * 
-     * @param nombre
-     * @param dinero
-     * @param servicio
+     * Define el estado inicial del usuario.
+     * @param nombre el nombre del usuario.
+     * @param dinero el dinero inicial del usuario.
      */
     public Usuario(String nombre, int dinero){
         this.nombre = nombre;
@@ -75,6 +74,18 @@ public class Usuario implements InterfazObservador{
         return this.planes;
     }
 
+    public String getServicioPlan(Servicio servicio){
+        int indiceSuscipcion = this.getSuscripciones().indexOf(servicio);
+        int plan = this.getPlanes().get(indiceSuscipcion);
+        switch(plan){
+            case 0 : return " Premium";
+            case 1 : return " para 1 dispositivo.";
+            case 2 : return " para 2 dispositivos.";
+            case 4 : return " para 4 dispositivos.";
+            default: return "";
+        }
+    }
+
     @Override
     public void update(){
         recomendacion = servicio.getRecomendacion();
@@ -86,8 +97,11 @@ public class Usuario implements InterfazObservador{
                             ". Sólo en " + servicio.getNombre());
     }
 
-    public void suscribir(Servicio servicio){
+    public void suscribir(Servicio servicio, int plan){
         servicio.agregar(this);
+        this.getSuscripciones().add(servicio);
+        this.getPlanes().add(plan);
+        servicio.notificar();
     }
 
     public void cancelarServicio(Servicio servicio){

@@ -3,7 +3,6 @@ import java.util.LinkedList;
 public abstract class Servicio implements InterfazServicio{
 
     protected String nombre;
-    protected int costo;
     protected LinkedList<Usuario> suscriptores;
     String recomendacion;
 
@@ -13,9 +12,8 @@ public abstract class Servicio implements InterfazServicio{
      * @param costo el costo del servicio.
      * @param suscriptores la lista de suscriptores al servicio.
      */
-    public Servicio(String nombre, int costo){
+    public Servicio(String nombre){
         this.nombre = nombre;
-        this.costo = costo;
         suscriptores = new LinkedList<Usuario>();
     }
 
@@ -36,25 +34,6 @@ public abstract class Servicio implements InterfazServicio{
     }
 
     /**
-     * Regresa el costo del servicio.
-     * @return el costo del servicio.
-     */
-    
-    public int getCosto(){
-        return costo;
-    }
-
-    /** 
-     * Define el costo del servicio.
-     * @param costo el nuevo costo del servicio.
-     */
-    
-    public void setCosto(int costo) {
-        this.costo = costo;
-    }
-    
-
-    /**
      * Regresa la lista de los suscriptores.
      * @return la lista de los suscriptores.
      */
@@ -67,18 +46,19 @@ public abstract class Servicio implements InterfazServicio{
     }
 
     public void setRecomendacion(String r){
-        recomendacion = r;
-        //System.out.println("\nTe recomendamos " + r 
-        //+ ". Disfrútalo en " + this.nombre + ".");        
+        recomendacion = r;            
     }
 
 
     public void agregar(Usuario s) {
         suscriptores.add(s);
+        bienvenida(s);
     }
 
     public void remover(Usuario s) {
         suscriptores.remove(s);
+        System.out.println("¿Por qué nos dejas? " + s.getNombre() + 
+                            " Tendremos que dejarte ir...\n");      
     }
 
     public void notificar() {
@@ -88,15 +68,13 @@ public abstract class Servicio implements InterfazServicio{
 
     @Override 
     public void recomendar(Usuario u, int dia){
-        //String m = (u.getNombre() + "! Te recomendamos " + this.getRecomendacion()
-          //          + ", disfrútalo en " + this.nombre);
-        String mensaje = String.format("¡Hey %s! %s", u.getNombre(),
-                                         this.getRecomendacion(u, dia));
+        
     }
 
     @Override
     public void bienvenida(Usuario u) {
-        
+        System.out.println("\nTe damos la bienvenida a " + this.getNombre() 
+        + ", " + u.getNombre() + ". \n" );
     }
 
     @Override
@@ -106,7 +84,7 @@ public abstract class Servicio implements InterfazServicio{
         
     }
 
-    public abstract int getPrecio(int plan);
+    public abstract int getCosto(int plan);
     public abstract String recomendacionDiaria(int dia);
 
 

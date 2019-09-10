@@ -1,20 +1,25 @@
-public class Youtube extends Servicio implements InterfazServicio {
+/**
+ * YouTube es gratis para usuarios normales, 
+ * pero cobra $6 diarios para los usuarios premium. 
+ */
+public class Youtube extends Servicio {
 
-    public Youtube(String nombre, int costo) {
-        super(nombre, costo);
+    int premium = 6;
+    
+    public Youtube() {
+        super("YouTube");
     }
 
-    @Override public String bienvenida(Usuario u) {
+    @Override
+    public String recomendacionDiaria(int dia) {
         // TODO Auto-generated method stub
         return null;
     }
 
-    @Override public String recomendar(Usuario u) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override public void cobrar() {
-        // TODO Auto-generated method stub
+    @Override
+    public int getCosto(int plan) {
+        if(plan == 1)
+            return premium;
+        return 0;
     }
 }

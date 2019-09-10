@@ -1,22 +1,25 @@
-import java.util.LinkedList;
+/**
+ * Spotify es gratis para los usuarios normales,
+ * pero cobra $4 diarios por un servicio premium. 
+ */
+public class Spotify extends Servicio {
 
-public class Spotify extends Servicio implements InterfazServicio {
-
-    public Spotify(String nombre, int costo, LinkedList<Usuario> suscriptores) {
-        super(nombre, costo);
+    int premium = 4;
+    
+    public Spotify() {
+        super("Spotify");
     }
 
-    @Override public String bienvenida(Usuario u) {
+    @Override
+    public String recomendacionDiaria(int dia) {
         // TODO Auto-generated method stub
         return null;
     }
 
-    @Override public String recomendar(Usuario u) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override public void cobrar() {
-        // TODO Auto-generated method stub
+    @Override
+    public int getCosto(int plan) {
+        if(plan == 1)
+            return premium;
+        return 0;
     }
 }

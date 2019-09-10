@@ -10,12 +10,7 @@ public class AmazonPrimeVideo extends Servicio {
     int premium = 13;
 
     public AmazonPrimeVideo() {
-        super("Amazon Prime Video", 7);
-    }
-
-    @Override public void bienvenida(Usuario u) {
-        System.out.println("\nTe damos la bienvenida a " + this.getNombre() 
-        + ", " + u.getNombre() + "\n" );
+        super("Amazon Prime Video");
     }
 
     @Override public String recomendacionDiaria(int dia) {
@@ -48,8 +43,11 @@ public class AmazonPrimeVideo extends Servicio {
 
 
     }
-
-    @Override public void cobrar(Usuario u, int dia) {
+    @Override
+    public int getCosto(int plan) {
+        if(plan == 0)
+            return premium;
+        return basico;
         
     }
 }
