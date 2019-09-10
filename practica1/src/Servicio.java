@@ -68,7 +68,11 @@ public abstract class Servicio implements InterfazServicio{
 
     @Override 
     public void recomendar(Usuario u, int dia){
-        
+        int indiceServicio = u.getSuscripciones().indexOf(this);
+        int plan = u.getPlanes().get(indiceServicio);
+        if (plan) {
+            
+        }
     }
 
     @Override

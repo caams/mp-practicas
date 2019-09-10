@@ -17,7 +17,7 @@ public class Usuario implements InterfazObservador{
     /* Variable que nos dice si es usuario premium o no. */
     private LinkedList<Servicio> suscripciones;
     /* Estado del servicio (o recomendaciones) que recibe el usuario. */
-    private String recomendacion;
+    private LinkedList<String> recomendaciones;
     /* Lista de planes contratados. */
     private LinkedList<Integer> planes;
     
@@ -31,7 +31,8 @@ public class Usuario implements InterfazObservador{
         this.nombre = nombre;
         this.dinero = dinero;
         this.suscripciones = new LinkedList<Servicio>(); 
-        this.planes = new LinkedList<Integer>();        
+        this.planes = new LinkedList<Integer>();       
+        this.recomendaciones = new LinkedList<String>();
     }
 
     /**
@@ -74,6 +75,10 @@ public class Usuario implements InterfazObservador{
         return this.planes;
     }
 
+    public LinkedList<String> getRecomendaciones(){
+        return this.recomendaciones;
+    }
+
     public String getServicioPlan(Servicio servicio){
         int indiceSuscipcion = this.getSuscripciones().indexOf(servicio);
         int plan = this.getPlanes().get(indiceSuscipcion);
@@ -88,13 +93,14 @@ public class Usuario implements InterfazObservador{
 
     @Override
     public void update(){
-        recomendacion = servicio.getRecomendacion();
-        mostrarRecomendacion();
+        for(String recomendacion : this.getRecomendaciones())
+            mostrarRecomendacion(recomendacion);
     }
 
-    public void mostrarRecomendacion(){
-        System.out.println(nombre + ", te recomendamos " + recomendacion +
+    public String mostrarRecomendacion(String r){
+        String s = (nombre + ", te recomendamos " + r +
                             ". Sólo en " + servicio.getNombre());
+        return s;
     }
 
     public void suscribir(Servicio servicio, int plan){
