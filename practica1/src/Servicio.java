@@ -4,7 +4,7 @@ public abstract class Servicio implements InterfazServicio{
 
     protected String nombre;
     protected LinkedList<Usuario> suscriptores;
-    String recomendacion;
+    String recomendacionDeHoy;
 
     /**
      * Define el estado inicial de cada servicio.
@@ -42,11 +42,11 @@ public abstract class Servicio implements InterfazServicio{
     }
 
     public String getRecomendacion(){
-        return recomendacion;
+        return recomendacionDeHoy;
     }
 
     public void setRecomendacion(String r){
-        recomendacion = r;            
+        recomendacionDeHoy = r;            
     }
 
 
@@ -68,7 +68,10 @@ public abstract class Servicio implements InterfazServicio{
 
     @Override 
     public void recomendar(Usuario u, int dia){
-        
+        int indiceServicio = u.getSuscripciones().indexOf(this);
+        int plan = u.getPlanes().get(indiceServicio);
+        if (plan > 0) 
+            return this.recomendacionDiaria(dia);//Está mal
     }
 
     @Override
