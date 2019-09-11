@@ -14,7 +14,7 @@ public interface InterfazServicio {
      * @param u el usuario a dar la recomendación.
      * @param dia el día de la recomendación específica.
      */
-    public void recomendar(Usuario u, int dia);
+    public void notificar();
 
     /**
      * Cobra al usuario por día de suscripción.

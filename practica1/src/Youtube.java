@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Random;
 /**
  * YouTube es gratis para usuarios normales, 
  * pero cobra $6 diarios para los usuarios premium. 
@@ -11,9 +13,16 @@ public class Youtube extends Servicio {
     }
 
     @Override
-    public String recomendacionDiaria(int dia) {
-        // TODO Auto-generated method stub
-        return null;
+    public void recomendacionDiaria() {
+        ArrayList<String> recsYouTube = new ArrayList<String>();
+        Random dice = new Random(); 
+        int n = dice.nextInt(5);
+        recsYouTube.add(" Do you Want to See a Dead Body? ");
+        recsYouTube.add(" Impulse");
+        recsYouTube.add(" Weird City");
+        recsYouTube.add(" Origin");
+        recsYouTube.add(" Cobra Kai");
+        setRecomendacion(recsYouTube.get(n));
     }
 
     @Override

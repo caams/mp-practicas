@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Random;
 /**
  * Amazon tiene una versión de 
  * usuario normal con un costo de $7 diarios y 
@@ -13,36 +15,21 @@ public class AmazonPrimeVideo extends Servicio {
         super("Amazon Prime Video");
     }
 
-    @Override public String recomendacionDiaria(int dia) {
-
-        String day1 = "Bosch";
-        String day2 = "Mozart in the Jungle";
-        String day3 = "The Man on High Castle";
-        String day4 = "Sneaky Pete";
-        String day5 = "Goliath";
-
-        switch (dia) {
-            case 1:
-                return day1;              
-                
-            case 2:
-                return day2;              
-                
-            case 3:
-                return day3;                
-                
-            case 4:
-                return day4;                
-                
-            case 5:
-                return day5;           
-            default:
-                return "";
-                
-        }
-
-
+    @Override
+    public void recomendacionDiaria() {
+        ArrayList<String> recsAmazon = new ArrayList<String>();
+        Random dice = new Random(); 
+        int n = dice.nextInt(5);
+        recsAmazon.add(" Bosch");
+        recsAmazon.add(" Mozart in the Jungle");
+        recsAmazon.add(" The Man on High Castle");
+        recsAmazon.add(" Sneaky Pete");
+        recsAmazon.add(" Goliath");
+        setRecomendacion(recsAmazon.get(n));
     }
+
+
+    
     @Override
     public int getCosto(int plan) {
         if(plan == 0)

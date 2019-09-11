@@ -1,6 +1,4 @@
 import java.util.LinkedList;
-//import java.util.Observable;
-//import java.util.Observer;
 
 /**
  * Clase para representar usuarios. Un usuario tiene un
@@ -99,7 +97,7 @@ public class Usuario implements InterfazObservador{
 
     public void mostrarRecomendacion(){
         System.out.println(nombre + ", te recomendamos " + recomendaciones.getLast() +
-                            ". Sólo en " + servicio.getNombre());
+                            ". Difrútalo en " + servicio.getNombre());
     }
 
     public void suscribir(Servicio servicio, int plan){

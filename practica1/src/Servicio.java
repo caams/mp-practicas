@@ -45,6 +45,10 @@ public abstract class Servicio implements InterfazServicio{
         return recomendacionDeHoy;
     }
 
+    /**
+     * Define la recomendación del día de cada servicio.
+     * @param r la recomendación de hoy.
+     */
     public void setRecomendacion(String r){
         recomendacionDeHoy = r;            
     }
@@ -61,17 +65,10 @@ public abstract class Servicio implements InterfazServicio{
                             " Tendremos que dejarte ir...\n");      
     }
 
+    @Override 
     public void notificar() {
         for (Usuario s : suscriptores)
             s.update();
-    }
-
-    @Override 
-    public void recomendar(Usuario u, int dia){
-        int indiceServicio = u.getSuscripciones().indexOf(this);
-        int plan = u.getPlanes().get(indiceServicio);
-        if (plan > 0) 
-            return this.recomendacionDiaria(dia);//Está mal
     }
 
     @Override
@@ -88,7 +85,7 @@ public abstract class Servicio implements InterfazServicio{
     }
 
     public abstract int getCosto(int plan);
-    public abstract String recomendacionDiaria(int dia);
+    public abstract void recomendacionDiaria();
 
 
 }

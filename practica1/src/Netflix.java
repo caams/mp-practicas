@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * Netflix cobra $7 diarios para un sólo dispositivo, 
  * $10 para 2 dispositivos y $15 para 4 dispositivos. 
@@ -13,9 +16,16 @@ public class Netflix extends Servicio {
     }
 
     @Override
-    public String recomendacionDiaria(int dia) {
-        // TODO Auto-generated method stub
-        return null;
+    public void recomendacionDiaria() {
+        ArrayList<String> recsNetflix = new ArrayList<String>();
+        Random dice = new Random(); 
+        int n = dice.nextInt(5);
+        recsNetflix.add(" Black Mirror");
+        recsNetflix.add(" House of Cards");
+        recsNetflix.add(" Godless");
+        recsNetflix.add(" 13 Reasons Why");
+        recsNetflix.add(" Baby");
+        setRecomendacion(recsNetflix.get(n));
     }
 
     @Override
