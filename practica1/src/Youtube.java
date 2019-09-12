@@ -7,6 +7,7 @@ import java.util.Random;
 public class Youtube extends Servicio {
 
     int premium = 6;
+    ArrayList<String> recsYouTube = new ArrayList<String>();
     
     public Youtube() {
         super("YouTube");
@@ -14,7 +15,7 @@ public class Youtube extends Servicio {
 
     @Override
     public void recomendacionDiaria() {
-        ArrayList<String> recsYouTube = new ArrayList<String>();
+        
         Random dice = new Random(); 
         int n = dice.nextInt(5);
         recsYouTube.add(" Do you Want to See a Dead Body? ");

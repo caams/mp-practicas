@@ -10,6 +10,7 @@ public class Netflix extends Servicio {
     int uno = 7;
     int dos = 10;
     int cuatro = 15;
+    ArrayList<String> recsNetflix = new ArrayList<String>();
 
     public Netflix() {
         super("Netflix");
@@ -17,7 +18,7 @@ public class Netflix extends Servicio {
 
     @Override
     public void recomendacionDiaria() {
-        ArrayList<String> recsNetflix = new ArrayList<String>();
+        
         Random dice = new Random(); 
         int n = dice.nextInt(5);
         recsNetflix.add(" Black Mirror");

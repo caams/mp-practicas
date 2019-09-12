@@ -10,6 +10,7 @@ public class AmazonPrimeVideo extends Servicio {
 
     int basico = 7;
     int premium = 13;
+    ArrayList<String> recsAmazon = new ArrayList<String>();
 
     public AmazonPrimeVideo() {
         super("Amazon Prime Video");
@@ -17,7 +18,7 @@ public class AmazonPrimeVideo extends Servicio {
 
     @Override
     public void recomendacionDiaria() {
-        ArrayList<String> recsAmazon = new ArrayList<String>();
+        
         Random dice = new Random(); 
         int n = dice.nextInt(5);
         recsAmazon.add(" Bosch");

@@ -7,14 +7,15 @@ import java.util.Random;
 public class Spotify extends Servicio {
 
     int premium = 4;
+    ArrayList<String> recsSpotify = new ArrayList<String>(); 
     
     public Spotify() {
-        super("Spotify");
+        super("Spotify");        
     }
 
     @Override
     public void recomendacionDiaria() {
-        ArrayList<String> recsSpotify = new ArrayList<String>();
+        
         Random dice = new Random(); 
         int n = dice.nextInt(5);
         recsSpotify.add(" Bebe Rexha");
