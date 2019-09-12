@@ -1,8 +1,25 @@
+/**
+ * Interfaz que define el comportamiento en común de los servicios.
+ */
 public interface InterfazServicio {
 
-    public String bienvenida(Usuario u);
+    /**
+     * Da la bienvendida al usario.
+     * @param u el usuario a quien da la bienvenida.
+     */
+    public void bienvenida(Usuario u);
 
-    public String recomendar(Usuario u);
+    /**
+     * Da la recomendación diaria al usuario.
+     * @param u el usuario a dar la recomendación.
+     * @param dia el día de la recomendación específica.
+     */
+    public void notificar();
 
-    public void cobrar();
+    /**
+     * Cobra al usuario por día de suscripción.
+     * @param u el usuario al que se debe cobrar.
+     * @param dia el día a cobrar.
+     */
+    public void cobrar(Usuario u, int dia);
 }

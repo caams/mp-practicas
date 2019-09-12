@@ -1,10 +1,10 @@
 import java.util.LinkedList;
 
-public class Servicio implements InterfazSujeto {
+public abstract class Servicio implements InterfazServicio{
 
     protected String nombre;
-    protected int costo;
     protected LinkedList<Usuario> suscriptores;
+    String recomendacionDeHoy;
 
     /**
      * Define el estado inicial de cada servicio.
@@ -12,9 +12,8 @@ public class Servicio implements InterfazSujeto {
      * @param costo el costo del servicio.
      * @param suscriptores la lista de suscriptores al servicio.
      */
-    public Servicio(String nombre, int costo){
+    public Servicio(String nombre){
         this.nombre = nombre;
-        this.costo = costo;
         suscriptores = new LinkedList<Usuario>();
     }
 
@@ -35,22 +34,6 @@ public class Servicio implements InterfazSujeto {
     }
 
     /**
-     * Regresa el costo del servicio.
-     * @return el costo del servicio.
-     */
-    public int getCosto(){
-        return costo;
-    }
-
-    /**
-     * Define el costo del servicio.
-     * @param costo el nuevo costo del servicio.
-     */
-    public void setCosto(int costo) {
-        this.costo = costo;
-    }
-
-    /**
      * Regresa la lista de los suscriptores.
      * @return la lista de los suscriptores.
      */
@@ -58,17 +41,51 @@ public class Servicio implements InterfazSujeto {
         return suscriptores;
     }
 
+    public String getRecomendacion(){
+        return recomendacionDeHoy;
+    }
+
+    /**
+     * Define la recomendación del día de cada servicio.
+     * @param r la recomendación de hoy.
+     */
+    public void setRecomendacion(String r){
+        recomendacionDeHoy = r;            
+    }
+
+
     public void agregar(Usuario s) {
         suscriptores.add(s);
+        bienvenida(s);
     }
 
     public void remover(Usuario s) {
         suscriptores.remove(s);
+        System.out.println("¿Por qué nos dejas? " + s.getNombre() + 
+                            " Tendremos que dejarte ir...\n");      
     }
 
+    @Override 
     public void notificar() {
         for (Usuario s : suscriptores)
             s.update();
     }
+
+    @Override
+    public void bienvenida(Usuario u) {
+        System.out.println("\nTe damos la bienvenida a " + this.getNombre() 
+        + ", " + u.getNombre() + ". \n" );
+    }
+
+    @Override
+     public void cobrar(Usuario u, int dia){
+        if(dia == 1)
+            return;
+        
+    }
+
+    public abstract int getCosto(int plan);
+    public abstract void recomendacionDiaria();
+
 
 }

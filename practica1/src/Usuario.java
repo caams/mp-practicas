@@ -1,5 +1,5 @@
-//import java.util.Observable;
-//import java.util.Observer;
+import java.util.LinkedList;
+
 /**
  * Clase para representar usuarios. Un usuario tiene un
  * nombre, un usuario y cierta cantidad de dinero.
@@ -13,17 +13,24 @@ public class Usuario implements InterfazObservador{
     /* Servicios a los que el usuario está suscrito. */
     private Servicio servicio;
     /* Variable que nos dice si es usuario premium o no. */
-    private boolean premium;
-    /* Estado del servicio (o recomendaciones) al que está suscrito el usuario. */
-    private String recomendacion;
+    private LinkedList<Servicio> suscripciones;
+    /* Estado del servicio (o recomendaciones) que recibe el usuario. */
+    private LinkedList<String> recomendaciones;
+    /* Lista de planes contratados. */
+    private LinkedList<Integer> planes;
     
     
-    
-    public Usuario(String nombre, int dinero, Servicio servicio){
+    /**
+     * Define el estado inicial del usuario.
+     * @param nombre el nombre del usuario.
+     * @param dinero el dinero inicial del usuario.
+     */
+    public Usuario(String nombre, int dinero){
         this.nombre = nombre;
         this.dinero = dinero;
-        this.servicio = servicio;
-        premium = false;
+        this.suscripciones = new LinkedList<Servicio>(); 
+        this.planes = new LinkedList<Integer>();    
+        this.recomendaciones = new LinkedList<String>();
     }
 
     /**
@@ -58,19 +65,46 @@ public class Usuario implements InterfazObservador{
         this.dinero = dinero;
     }
 
+    public LinkedList<Servicio> getSuscripciones(){
+        return this.suscripciones;
+    }
+
+    public LinkedList<Integer> getPlanes(){
+        return this.planes;
+    }
+
+    public LinkedList<String> getNotificaciones(){
+        return this.recomendaciones;
+    }
+
+    public String getServicioPlan(Servicio servicio){
+        int indiceSuscipcion = this.getSuscripciones().indexOf(servicio);
+        int plan = this.getPlanes().get(indiceSuscipcion);
+        switch(plan){
+            case 0 : return " Premium";
+            case 1 : return " para 1 dispositivo.";
+            case 2 : return " para 2 dispositivos.";
+            case 4 : return " para 4 dispositivos.";
+            default: return "";
+        }
+    }
+
     @Override
     public void update(){
-        recomendacion = servicio.getRecomendacion();
+        recomendaciones.add(servicio.getRecomendacion());
         mostrarRecomendacion();
     }
 
     public void mostrarRecomendacion(){
-        System.out.println(nombre + ", te recomendamos " + recomendacion +
-                            ". Sólo en " + servicio.getNombre());
+        System.out.println(nombre + ", te recomendamos " + recomendaciones.getLast() +
+                            ". Difrútalo en " + servicio.getNombre());
     }
 
-    public void suscribir(Servicio servicio){
+    public void suscribir(Servicio servicio, int plan){
         servicio.agregar(this);
+        this.getSuscripciones().add(servicio);
+        this.getPlanes().add(plan);
+        servicio.notificar();
     }
 
     public void cancelarServicio(Servicio servicio){
