@@ -10,9 +10,7 @@ public interface InterfazServicio {
     public void bienvenida(Usuario u);
 
     /**
-     * Da la recomendación diaria al usuario.
-     * @param u el usuario a dar la recomendación.
-     * @param dia el día de la recomendación específica.
+     * Notifica al usuario.
      */
     public void notificar();
 

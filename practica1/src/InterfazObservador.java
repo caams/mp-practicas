@@ -1,3 +1,3 @@
 public interface InterfazObservador{
-	public void update();
+	public void update(Servicio s);
 }

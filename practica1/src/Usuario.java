@@ -11,7 +11,7 @@ public class Usuario implements InterfazObservador{
     /* Cantidad de dinero del usuario. */
     private int dinero;
     /* Servicios a los que el usuario está suscrito. */
-    private Servicio servicio;
+    //private Servicio servicio;
     /* Variable que nos dice si es usuario premium o no. */
     private LinkedList<Servicio> suscripciones;
     /* Estado del servicio (o recomendaciones) que recibe el usuario. */
@@ -82,22 +82,22 @@ public class Usuario implements InterfazObservador{
         int plan = this.getPlanes().get(indiceSuscipcion);
         switch(plan){
             case 0 : return " Premium";
-            case 1 : return " para 1 dispositivo.";
-            case 2 : return " para 2 dispositivos.";
-            case 4 : return " para 4 dispositivos.";
+            case 1 : return " para 1 dispositivo";
+            case 2 : return " para 2 dispositivos";
+            case 4 : return " para 4 dispositivos";
             default: return "";
         }
     }
 
     @Override
-    public void update(){
-        recomendaciones.add(servicio.getRecomendacion());
-        mostrarRecomendacion();
+    public void update(Servicio s){
+        recomendaciones.add(s.getRecomendacion());
+        mostrarRecomendacion(s);
     }
 
-    public void mostrarRecomendacion(){
-        System.out.println(nombre + ", te recomendamos " + recomendaciones.getLast() +
-                            ". Difrútalo en " + servicio.getNombre());
+    public void mostrarRecomendacion(Servicio s){
+        System.out.println(nombre + ", te recomendamos " + getNotificaciones().element() +
+                            ". Difrútalo en " + s.getNombre() + ".\n");
     }
 
     public void suscribir(Servicio servicio, int plan){
@@ -109,5 +109,16 @@ public class Usuario implements InterfazObservador{
 
     public void cancelarServicio(Servicio servicio){
         servicio.remover(this);
+    }
+
+    public void simulacionPorDia(int dia){
+        LinkedList<Servicio> copia = new LinkedList<Servicio>(suscripciones);
+        for (Servicio s : copia) {
+            if (s.getSuscriptores().contains(this)) 
+                s.cobrar(this, dia); 
+                this.update(s);                           
+        }
+        this.getNotificaciones().clear();
+        System.out.println();
     }
 }
