@@ -68,7 +68,7 @@ public abstract class Servicio implements InterfazServicio{
     @Override 
     public void notificar() {
         for (Usuario s : suscriptores)
-            s.update();
+            s.update(this);
     }
 
     @Override
@@ -76,14 +76,34 @@ public abstract class Servicio implements InterfazServicio{
         System.out.println("\nTe damos la bienvenida a " + this.getNombre() 
         + ", " + u.getNombre() + ". \n" );
     }
-
+    
     @Override
-     public void cobrar(Usuario u, int dia){
+    public void cobrar(Usuario u, int dia) {
         if(dia == 1)
             return;
-        
+        int indiceServicio = u.getSuscripciones().indexOf(this);
+        int plan = u.getPlanes().get(indiceServicio);
+        String mensaje;
+        if (u.getDinero() < this.getCosto(plan)) {
+            mensaje = String.format("%s, te informamos que tu suscripción a " +
+                                    "%s%s ha sido cancelada por " +
+                                    "no se ha podido completar el pago.",
+                                    u.getNombre(), this.nombre,
+                                    u.getServicioPlan(this));
+            System.out.println(mensaje);
+            u.getPlanes().remove(indiceServicio);
+            u.getSuscripciones().remove(this);
+            suscriptores.remove(u);
+        } else {
+            mensaje = String.format("%s, se te han cobrado $%d del servicio " +
+                                    "de %s%s.", u.getNombre(),
+                                    this.getCosto(plan), nombre,
+                                    u.getServicioPlan(this));
+            u.setDinero(u.getDinero() - this.getCosto(plan));
+            System.out.println(mensaje);
+        }
     }
-
+    
     public abstract int getCosto(int plan);
     public abstract void recomendacionDiaria();
 

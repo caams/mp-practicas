@@ -52,6 +52,13 @@ public class Practica1{
                 erika.suscribir(amazon, 0);
                 diego.suscribir(spotify, g);
             }
+            alicia.simulacionPorDia(i);
+            bob.simulacionPorDia(i);
+            cesar.simulacionPorDia(i);
+            diego.simulacionPorDia(i);
+            erika.simulacionPorDia(i);
         }
+
+        System.out.println("____Final de la simulación.____");
     }
 }
