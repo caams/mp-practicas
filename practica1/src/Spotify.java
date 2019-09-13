@@ -14,7 +14,7 @@ public class Spotify extends Servicio {
     }
 
     @Override
-    public void recomendacionDiaria() {
+    public String recomendacionDiaria() {
         
         Random dice = new Random(); 
         int n = dice.nextInt(5);
@@ -24,6 +24,7 @@ public class Spotify extends Servicio {
         recsSpotify.add(" David Ghetta");
         recsSpotify.add(" Muse");
         setRecomendacion(recsSpotify.get(n));
+        return recsSpotify.get(n);
     }
 
     @Override
