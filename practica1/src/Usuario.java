@@ -91,12 +91,13 @@ public class Usuario implements InterfazObservador{
 
     @Override
     public void update(Servicio s){
+        //s.setRecomendacion(r);
         recomendaciones.add(s.getRecomendacion());
         mostrarRecomendacion(s);
     }
 
     public void mostrarRecomendacion(Servicio s){
-        System.out.println(nombre + ", te recomendamos " + getNotificaciones().element() +
+        System.out.println(nombre + ", te recomendamos " + s.recomendacionDiaria() +
                             ". Difrútalo en " + s.getNombre() + ".\n");
     }
 

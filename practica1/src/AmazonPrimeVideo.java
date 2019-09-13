@@ -17,7 +17,7 @@ public class AmazonPrimeVideo extends Servicio {
     }
 
     @Override
-    public void recomendacionDiaria() {
+    public String recomendacionDiaria() {
         
         Random dice = new Random(); 
         int n = dice.nextInt(5);
@@ -27,6 +27,7 @@ public class AmazonPrimeVideo extends Servicio {
         recsAmazon.add(" Sneaky Pete");
         recsAmazon.add(" Goliath");
         setRecomendacion(recsAmazon.get(n));
+        return recsAmazon.get(n);
     }
 
 

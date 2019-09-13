@@ -14,7 +14,7 @@ public class Youtube extends Servicio {
     }
 
     @Override
-    public void recomendacionDiaria() {
+    public String recomendacionDiaria() {
         
         Random dice = new Random(); 
         int n = dice.nextInt(5);
@@ -24,6 +24,7 @@ public class Youtube extends Servicio {
         recsYouTube.add(" Origin");
         recsYouTube.add(" Cobra Kai");
         setRecomendacion(recsYouTube.get(n));
+        return recsYouTube.get(n);
     }
 
     @Override

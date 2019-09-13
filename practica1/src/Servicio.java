@@ -105,7 +105,7 @@ public abstract class Servicio implements InterfazServicio{
     }
     
     public abstract int getCosto(int plan);
-    public abstract void recomendacionDiaria();
+    public abstract String recomendacionDiaria();
 
 
 }
