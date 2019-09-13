@@ -82,14 +82,30 @@ public class Usuario implements InterfazObservador{
         int plan = this.getPlanes().get(indiceSuscipcion);
         switch(plan){
             case 0 : return " Premium";
+<<<<<<< HEAD
+            case 1 : return " para 1 dispositivo.";
+            case 2 : return " para 2 dispositivos.";
+            case 4 : return " para 4 dispositivos.";
+=======
             case 1 : return " para 1 dispositivo";
             case 2 : return " para 2 dispositivos";
             case 4 : return " para 4 dispositivos";
+>>>>>>> cobro
             default: return "";
         }
     }
 
     @Override
+<<<<<<< HEAD
+    public void update(){
+        recomendaciones.add(servicio.getRecomendacion());
+        mostrarRecomendacion();
+    }
+
+    public void mostrarRecomendacion(){
+        System.out.println(nombre + ", te recomendamos " + recomendaciones.getLast() +
+                            ". Difrútalo en " + servicio.getNombre());
+=======
     public void update(Servicio s){
         //s.setRecomendacion(r);
         recomendaciones.add(s.getRecomendacion());
@@ -99,6 +115,7 @@ public class Usuario implements InterfazObservador{
     public void mostrarRecomendacion(Servicio s){
         System.out.println(nombre + ", te recomendamos " + s.recomendacionDiaria() +
                             ". Difrútalo en " + s.getNombre() + ".\n");
+>>>>>>> cobro
     }
 
     public void suscribir(Servicio servicio, int plan){
