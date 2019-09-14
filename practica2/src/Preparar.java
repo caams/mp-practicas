@@ -1,4 +1,4 @@
-public abstract class PrepararHamburguesa {
+public abstract class Preparar{
 
     /*
 	* Metodo abstracto para que cada clase lo modifique a su antojo.
@@ -15,9 +15,9 @@ public abstract class PrepararHamburguesa {
 	public final void rutinaDiaria(){
         ponerPan();
         ponerMayonesa();
-        prepararCarne();
-        ponerCarne();
-        ponerQueso();
+        prepararCarne();//hook
+        ponerCarne();//hook
+        ponerQueso();//hook
         ponerVegetales();
         ponerCatsup();
         ponerPan();
