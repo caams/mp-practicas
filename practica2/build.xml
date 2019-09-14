@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="practica1" default="practica1.jar" basedir="." >
+<project name="practica2" default="practica2.jar" basedir="." >
 
   <property name="build.dir" value="build" />
   <property name="src.dir"   value="src" />
   <property name="lib.dir"   value="lib" />
   <property name="doc.dir"   value="doc" />
 
-  <target name="practica1.jar" depends="compile.practica1">
-    <jar jarfile="practica1.jar">
+  <target name="practica2.jar" depends="compile.practica2">
+    <jar jarfile="practica2.jar">
       <zipfileset dir="${build.dir}" prefix="" />
       <manifest>
-        <attribute name="Main-Class" value="Practica1"/>
+        <attribute name="Main-Class" value="Practica2"/>
       </manifest>
     </jar>
   </target>
 
-  <target name="compile.practica1">
+  <target name="compile.practica2">
     <mkdir dir="${build.dir}"/>
     <javac srcdir="${src.dir}"
            destdir="${build.dir}"
@@ -33,7 +33,7 @@
     </javac>
   </target>
 
-  <target name="doc" depends="compile.practica1">
+  <target name="doc" depends="compile.practica2">
     <mkdir dir="${doc.dir}"/>
     <javadoc packagenames=".*"
              sourcepath="src"
@@ -56,12 +56,12 @@
   </target>
 
   <target name="clean">
-    <delete file="practica1.jar"/>
+    <delete file="practica2.jar"/>
     <delete dir="${build.dir}"/>
     <delete dir="${doc.dir}"/>
   </target>
 
-  <target name="test" depends="compile.practica1">
+  <target name="test" depends="compile.practica2">
     <junit printsummary="yes" haltonfailure="no">
       <formatter type="plain" usefile="false" />
       <classpath>
