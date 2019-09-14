@@ -3,7 +3,7 @@
  * un id, el nombre del platillo, su descripción, el precio, un booleano 
  * que indica si tiene queso y un booleano que indica si es vegetariano.
  */
-public class Hamburguesa extends Preparar{
+public abstract class Hamburguesa extends Preparar{
 
     int id;
     String nombre;
@@ -58,6 +58,12 @@ public class Hamburguesa extends Preparar{
      */
     public int getPrecio() {
         return precio;
+    }
+
+    public void getHamburguesa(){
+        String format =  String.format("%d %s. Descripción: %s  $%d", 
+                                        id, nombre, descripcion, precio);
+        System.out.println(format);
     }
 
     
