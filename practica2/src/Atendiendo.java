@@ -1,7 +1,7 @@
 public class Atendiendo implements EstadoRobot {
 
     Robot robot;
-    Menu menu;
+    Hamburguesa menu;
 
     public Atendiendo(Robot nuevoRobot) {
         robot = nuevoRobot;
@@ -15,13 +15,14 @@ public class Atendiendo implements EstadoRobot {
         System.out.println("No puedo caminar mientras estoy atendiendo a alguien");
     }
 
-    @Override public void pedirOrden(String pedido) {
+    @Override public void pedirOrden(int pedido) {
         System.out.println("Solo puedo atender una orden a la vez");
     }
 
-    @Override public void cocinar(String pedido) {
+    @Override public void cocinar(int pedido) {
         System.out.println("Cocinando...");
-        menu.hacerHamburguesa();
+        //menu.setId(pedido);
+        //menu.rutinaCoccion();
         robot.setEventoRobot(robot.getCocinando());
     }
 

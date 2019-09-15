@@ -9,13 +9,32 @@ public class Practica2 {
         
         Scanner scan = new Scanner(System.in);
         
-        MenuArreglo menu1 = new MenuArreglo();
-        MenuLista menu2 = new MenuLista();
-        MenuHash menu3 = new MenuHash();
+        
+        Robot robocop = new Robot();
+        
 
+        robocop.display();
+        int orden = scan.nextInt();
+        //robocop.leerMenu();
 
-        menu1.menuBasico();
-        menu2.menuDiario();
-        menu3.menuDeLujo();
+        switch (orden) {
+            case 1:
+                robocop.setRobotActivo(true);
+                robocop.caminando();
+                break;
+            case 2:
+                robocop.atendiendo();
+                break;
+            case 3:
+                robocop.leerMenu(); 
+            case 4: 
+                robocop.cocinando();
+            case 5:
+                break;
+        
+            default:
+                System.out.println("Opción inválida.");
+                break;
+        }
     }
 }

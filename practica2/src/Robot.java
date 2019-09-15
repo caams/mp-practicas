@@ -8,6 +8,9 @@ public class Robot {
     boolean activo = false;
     boolean preparando = false;
     String pedido;
+    MenuArreglo menu1 = new MenuArreglo();
+    MenuLista menu2 = new MenuLista();
+    MenuHash menu3 = new MenuHash();
 
     public Robot() {
         suspendido = new Suspendido(this);
@@ -47,5 +50,26 @@ public class Robot {
 
     public EstadoRobot getCocinando() {
         return cocinando;
+    }
+
+    public void display() {
+        System.out.println("-- Actions --");
+        System.out.println(
+        "Selecciona una opción: \n" +
+        "  1) Activar\n" +//Se activa y empieza a caminar
+        "  2) Atender\n" +//Atiende al cliente
+        "  3) Ver menú\n" +
+        "  4) Cocinar \n" +//Cocina la opción elegida por el cliente
+        "  5) Exit\n "
+        );
+        
+    }
+
+    public void leerMenu(){
+
+        menu1.menuBasico();
+        menu2.menuDiario();
+        menu3.menuDeLujo();
+
     }
 }

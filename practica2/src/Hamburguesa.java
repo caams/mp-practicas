@@ -34,6 +34,34 @@ public abstract class Hamburguesa extends Preparar{
     }
     
     /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * @param descripcion the descripcion to set
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    /**
+     * @param precio the precio to set
+     */
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    /**
      * @return the id
      */
     public int getId() {
@@ -64,6 +92,10 @@ public abstract class Hamburguesa extends Preparar{
         String format =  String.format("%d %s. Descripción: %s  $%d", 
                                         id, nombre, descripcion, precio);
         System.out.println(format);
+    }
+
+    public void prepararID(){
+
     }
 
     

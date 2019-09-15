@@ -1,3 +1,6 @@
+/**
+ * Preparar - Template
+ */
 public abstract class Preparar{
 
     /*
@@ -12,7 +15,7 @@ public abstract class Preparar{
 	/*
 	* Metodo template (plantilla)
 	*/
-	public final void rutinaDiaria(){
+	public final void rutinaCoccion(){
         ponerPan();
         ponerMayonesa();
         prepararCarne();//hook
