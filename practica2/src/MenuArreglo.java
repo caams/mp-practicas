@@ -1,15 +1,7 @@
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class MenuArreglo implements IteradorArreglo {
-
-    @Override public Object next() {
-        return null;
-    }
-
-    @Override public boolean hasNext() {
-        return false;
-    }
+public class MenuArreglo {
 
     Hamburguesa[] menu = new Hamburguesa[3];
     //Iterable<Hamburguesa> iterable = Arrays.asList(menu);
