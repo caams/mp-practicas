@@ -4,8 +4,8 @@ public interface EstadoRobot {
 
     public void caminar();
 
-    public void pedirOrden(String pedido);
+    public void pedirOrden(int pedido);
 
-    public void cocinar(String pedido);
+    public void cocinar(int pedido);
 
 }

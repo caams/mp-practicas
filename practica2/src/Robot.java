@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Robot {
 
     EstadoRobot suspendido;
@@ -5,6 +7,8 @@ public class Robot {
     EstadoRobot atendiendo;
     EstadoRobot cocinando;
     EstadoRobot estadoActual;
+    Hamburguesa hamburguesa;
+    Scanner entrada = new Scanner(System.in);
     boolean activo = false;
     boolean preparando = false;
     String pedido;
@@ -32,6 +36,22 @@ public class Robot {
     public void setPedido(String pedido) {
         this.pedido = pedido;
     }
+
+    public void suspenderse() {}
+
+    public void caminar() {}
+
+    public void pedirOrden(int pedido) {
+        System.out.println("Bienvenido a McHamburguesas, ¿qué le gustaria ordenar?");
+        MenuArreglo menu1 = new MenuArreglo();
+        MenuHash menu2 = new MenuHash();
+        MenuLista menu3 = new MenuLista();
+        System.out.println("Inserte el id de la hamburguesa");
+        int p = entrada.nextInt();
+        hamburguesa.setId(p);
+    }
+
+    public void cocinar(int pedido) {}
 
     public EstadoRobot getSuspendido() {
         return suspendido;

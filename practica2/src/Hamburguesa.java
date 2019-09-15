@@ -32,6 +32,10 @@ public abstract class Hamburguesa extends Preparar{
     public void setEsVegetariana(boolean esVegetariana) {
         this.esVegetariana = esVegetariana;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
     /**
      * @return the id

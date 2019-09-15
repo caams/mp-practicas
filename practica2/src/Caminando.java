@@ -1,7 +1,10 @@
+import java.util.Scanner;
+
 public class Caminando implements EstadoRobot {
 
     Robot robot;
-    Menu menu;
+    Hamburguesa hamburguesa;
+    Scanner entrada = new Scanner(System.in);
 
     public Caminando(Robot nuevoRobot) {
         robot = nuevoRobot;
@@ -15,14 +18,15 @@ public class Caminando implements EstadoRobot {
 
     @Override public void caminar() {
         System.out.println("Caminando...");
+        robot.setEventoRobot(robot.getCaminando());
+    }
+
+    @Override public void pedirOrden(int pedido) {
+        robot.pedirOrden(pedido);
         robot.setEventoRobot(robot.getAtendiendo());
     }
 
-    @Override public void pedirOrden(String pedido) {
-        System.out.println("No puedo pedir ordenes mientras camino");
-    }
-
-    @Override public void cocinar(String pedido) {
+    @Override public void cocinar(int pedido) {
         System.out.println("No puedo cocinar mientras camino, sería muy peligroso.");
     }
 

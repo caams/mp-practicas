@@ -16,11 +16,11 @@ public class Suspendido implements EstadoRobot{
         robot.setRobotActivo(true);
     }
 
-    @Override public void pedirOrden(String pedido) {
+    @Override public void pedirOrden(int pedido) {
         System.out.println("No puedo pedir ordenes mientras estoy suspendido.");
     }
 
-    @Override public void cocinar(String pedido) {
+    @Override public void cocinar(int pedido) {
         System.out.println("No puedo cocinar mientras estoy suspendido.");
     }
 
