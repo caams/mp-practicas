@@ -1,7 +1,7 @@
 public class HamburguesaPastor extends Hamburguesa {
 
     public HamburguesaPastor() {
-        super(8, "Hamgurguesa de pastor", "Hamburguesa preparada con carne de pastor, like a taco.", 8);
+        super(8, "Hamburguesa de pastor", "Hamburguesa preparada con carne de pastor, like a taco.", 8);
         setEsVegetariana(false);
         setTieneQueso(true);
     }
