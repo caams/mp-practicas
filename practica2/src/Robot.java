@@ -59,7 +59,7 @@ public class Robot {
         "  1) Activar\n" +//Se activa y empieza a caminar
         "  2) Atender\n" +//Atiende al cliente
         "  3) Ver menú\n" +
-        "  4) Cocinar \n" +//Cocina la opción elegida por el cliente
+        "  4) Ordenar \n" +//Cocina la opción elegida por el cliente
         "  5) Exit\n "
         );
         
