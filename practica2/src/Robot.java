@@ -105,33 +105,38 @@ public class Robot {
 
     }
 
-    public Hamburguesa prepararHamburguesa(int id) {
+    public void prepararHamburguesa(int id) {
         if (id <= 3) {
             Iterator<Hamburguesa> menuB = menu1.createIterator();
             while (menuB.hasNext()) {
                 Hamburguesa ham = menuB.next();
-                if(ham.getID() == id)
-                    return ham;
+                if(ham.getId() == id){
+                    ham.rutinaCoccion();
+                    
+                }
             }
         }
         else if (id > 3 && id < 11) {
             Iterator<Hamburguesa> menuD = menu2.createIterator();
             while (menuD.hasNext()) {
                 Hamburguesa ham = menuD.next();
-                if(ham.getID() == id)
-                    return ham;
+                if(ham.getId() == id){
+                    ham.rutinaCoccion();
+            
+                }
             }
         }
         else if (id < 14 && id > 10) {
             Iterator<Hamburguesa> menuL = menu3.createIterator();
             while (menuL.hasNext()) {
                 Hamburguesa ham = menuL.next();
-                if(ham.getID() == id)
-                    return ham;
+                if(ham.getId() == id){
+                    ham.rutinaCoccion();
+                }
             }
         }else{
         System.out.println("\nID inválido.");
-        return null;
+        
         }
     }
     
