@@ -5,9 +5,9 @@ public class Robot {
     EstadoRobot atendiendo;
     EstadoRobot cocinando;
     EstadoRobot estadoActual;
-    boolean activo = false;
-    boolean preparando = false;
-    String pedido;
+    //boolean activo = false;
+    //boolean preparando = false;
+    //String pedido;
     MenuArreglo menu1 = new MenuArreglo();
     MenuLista menu2 = new MenuLista();
     MenuHash menu3 = new MenuHash();
@@ -23,11 +23,12 @@ public class Robot {
     public void setEventoRobot(EstadoRobot nuevoEstado) {
         estadoActual = nuevoEstado;
     }
-
+    
+/*
     public void setRobotActivo(boolean activo) {
         this.activo = activo;
     }
-
+    
     public boolean getPreparando() {
         return preparando;
     }
@@ -35,6 +36,7 @@ public class Robot {
     public void setPedido(String pedido) {
         this.pedido = pedido;
     }
+    */
 
     public EstadoRobot getSuspendido() {
         return suspendido;
@@ -52,22 +54,43 @@ public class Robot {
         return cocinando;
     }
 
+    public void activarse(){
+        this.estadoActual.activarse();
+    }
+
+    public void suspenderse(){
+        this.estadoActual.suspenderse();
+    }
+
+    public void atender() {
+        this.estadoActual.atender();
+    }
+
+    public void cocinar(int pedido) {
+        this.estadoActual.cocinar(pedido);
+    }
+
     public void display() {
-        System.out.println("-- Robot's Actions --");
+        System.out.println("\n-- Robot's Actions --");
         System.out.println(
-        "Bienvenido a MCHamburguesas! Soy un robot a tu servicio, qué deseas que haga? \n" +
-        "  1) Activar\n" +//Se activa y empieza a caminar
-        "  2) Atender\n" +//Atiende al cliente
-        "  3) Ver menú\n" +
-        "  4) Ordenar \n" +//Cocina la opción elegida por el cliente
-        "  5) Exit\n " +
-        "Selecciona una opción: \n"
+        "Soy un robot a tu servicio, qué deseas que haga?\n" +
+        "\n==================================" +
+        "\n|   Bienvenido a MCHamburguesas! |" +
+        "\n==================================" +
+        "\n| Selecciona una opción:         |" +
+        "\n|        1. Activar              |" +//Se activa y empieza a caminar
+        "\n|        2. Atender              |" +//Atiende al cliente
+        "\n|        3. Ver menú             |" +
+        "\n|        4. Ordenar              |" +//Cocina la opción elegida por el cliente
+        "\n|        5. Exit                 |" +
+        "\n==================================" 
         );
+        System.out.print("\nOpción: ");
         
+                
     }
 
     public void leerMenu(){
-
         menu1.menuBasico();
         menu2.menuDiario();
         menu3.menuDeLujo();

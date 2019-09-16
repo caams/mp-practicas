@@ -18,17 +18,19 @@ public class Practica2 {
             try {
                 switch (orden) {
                     case 1:
-                        robocop.setRobotActivo(true);
-                        robocop.setEventoRobot(robocop.getCaminando());
-                        break;
+                        robocop.activarse();
                     case 2:
-                        robocop.setEventoRobot(robocop.getAtendiendo());
+                        robocop.atender();
                         break;
                     case 3:
                         robocop.leerMenu(); 
                         break;
                     case 4: 
-                        robocop.setEventoRobot(robocop.getCocinando());
+                        System.out.println("¡Excelente! ¿Qué desea ordenar?\n");
+                        robocop.leerMenu();
+                        System.out.println("Eliga un ID de la hamburguesa que va a ordenar: ");
+                        int pedido = scan.nextInt();
+                        robocop.cocinar(pedido);
                     case 5:
                         break;
                 

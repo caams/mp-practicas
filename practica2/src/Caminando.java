@@ -7,22 +7,31 @@ public class Caminando implements EstadoRobot {
         robot = nuevoRobot;
     }
 
-    @Override public void suspenderse() {
-        System.out.println("Suspendiendo...");
-        robot.setEventoRobot(robot.getSuspendido());
-        robot.setRobotActivo(false);
+    @Override
+    public void activarse() {
+        System.out.println("Ya estoy activado, me encuentro caminando...");
     }
 
-    @Override public void caminar() {
-        System.out.println("Caminando...");
+    @Override 
+    public void suspenderse() {
+        System.out.println("Suspendiendo...");
+        robot.setEventoRobot(robot.getSuspendido());
+        //robot.setRobotActivo(false);
+    }
+
+    @Override 
+    public void caminar() {
+        System.out.println("Ya estoy caminando...");        
+    }
+
+    @Override 
+    public void atender() {
+        System.out.println("En camino a atender tu orden.");
         robot.setEventoRobot(robot.getAtendiendo());
     }
 
-    @Override public void pedirOrden(int pedido) {
-        System.out.println("No puedo pedir ordenes mientras camino");
-    }
-
-    @Override public void cocinar(int pedido) {
+    @Override 
+    public void cocinar(int pedido) {
         System.out.println("No puedo cocinar mientras camino, sería muy peligroso.");
     }
 
