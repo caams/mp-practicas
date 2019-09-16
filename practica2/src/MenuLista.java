@@ -1,16 +1,18 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Random;
 
-public class MenuLista {
+public class MenuLista implements Menu{
 
     ArrayList<Hamburguesa> menu = new ArrayList<Hamburguesa>();
     
     
-    ArrayList<Hamburguesa> m = new ArrayList<Hamburguesa>();
+    //ArrayList<Hamburguesa> m = new ArrayList<Hamburguesa>();
 
     public ArrayList<Hamburguesa> elegirMenu(){
 
+        ArrayList<Hamburguesa> m = new ArrayList<Hamburguesa>();
         Random dice = new Random(); 
         
         menu.add(new HamburguesaPollo());
@@ -21,13 +23,18 @@ public class MenuLista {
         menu.add(new HamburguesaDulce());
         menu.add(new HamburguesaTamal());
 
-        //for (int i = 0; i <= 3; i++) {
-            m.add(menu.get(dice.nextInt(7)));
-            m.add(menu.get(dice.nextInt(7)));
-            m.add(menu.get(dice.nextInt(7)));
+        //Collections.shuffle(menu);
+
+        for (int i = 0; i < 3; i++) {
+            int r = dice.nextInt(menu.size());
+            m.add(menu.get(r));
+            menu.remove(r);
+            //m.add(menu.get(dice.nextInt(7)));
+            //m.add(menu.get(dice.nextInt(7)));
+        }
             menu = new ArrayList<Hamburguesa>(m);
 
-        //}
+        
         return menu;
     }
 
@@ -40,6 +47,13 @@ public class MenuLista {
         while(it.hasNext())
             it.next().getHamburguesa();
 
+    }
+
+    //@Override
+    public Iterator<Hamburguesa> createIterator(){
+        ArrayList<Hamburguesa> menuCopia = new ArrayList<Hamburguesa>(elegirMenu());
+        Iterator<Hamburguesa> it = menuCopia.iterator();
+        return it;
     }
 
 }

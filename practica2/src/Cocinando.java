@@ -1,6 +1,7 @@
 public class Cocinando implements EstadoRobot {
 
     Robot robot;
+    //Hamburguesa ham;
 
     public Cocinando(Robot nuevoRobot) {
         robot = nuevoRobot;
@@ -33,7 +34,12 @@ public class Cocinando implements EstadoRobot {
 
     @Override 
     public void cocinar(int pedido) {
-        System.out.println("Ya estoy cocinando.");
+        System.out.println("Empezando a preparar hamburguesa. \nRobot cocinando [ -c°▥°]-c");
+        robot.prepararHamburguesa(pedido);
+    }
+
+    public void entregarOrden(){
+
     }
 
 }

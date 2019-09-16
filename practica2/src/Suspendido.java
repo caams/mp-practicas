@@ -8,7 +8,8 @@ public class Suspendido implements EstadoRobot{
 
     @Override
     public void activarse() {
-        System.out.println("\nMe has activado y ahora estoy caminando.");
+        System.out.println("Robot activado. [ -c°▥°]-c" +
+                           "\nMe has activado y ahora estoy caminando.");
         robot.setEventoRobot(robot.getCaminando());
         //robot.setRobotActivo(true);
     }

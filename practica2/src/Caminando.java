@@ -14,7 +14,7 @@ public class Caminando implements EstadoRobot {
 
     @Override 
     public void suspenderse() {
-        System.out.println("Suspendiendo...");
+        System.out.println("\nSuspendiendo..." + "\nRobot suspendido. [ -c°▥°]-c");
         robot.setEventoRobot(robot.getSuspendido());
         //robot.setRobotActivo(false);
     }
@@ -26,7 +26,7 @@ public class Caminando implements EstadoRobot {
 
     @Override 
     public void atender() {
-        System.out.println("En camino a atender tu orden.");
+        System.out.println("\nEn camino a atender tu orden." + "\nRobot atendiendo. [ -c°▥°]-c");
         robot.setEventoRobot(robot.getAtendiendo());
     }
 

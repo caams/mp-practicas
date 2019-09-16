@@ -19,6 +19,7 @@ public class Practica2 {
                 switch (orden) {
                     case 1:
                         robocop.activarse();
+                        break;
                     case 2:
                         robocop.atender();
                         break;
@@ -26,12 +27,17 @@ public class Practica2 {
                         robocop.leerMenu(); 
                         break;
                     case 4: 
-                        System.out.println("¡Excelente! ¿Qué desea ordenar?\n");
+                        System.out.println("¡Excelente! (┌|o^▽^o|┘)♪ \nEstás son las hamburguesas del menú: \n");
                         robocop.leerMenu();
+                        
                         System.out.println("Eliga un ID de la hamburguesa que va a ordenar: ");
                         int pedido = scan.nextInt();
                         robocop.cocinar(pedido);
+                        break;
                     case 5:
+                        robocop.suspenderse();
+                        break;
+                    case 6:
                         break;
                 
                     default:
@@ -40,11 +46,11 @@ public class Practica2 {
                 }
                 
             } catch (InputMismatchException e) {
-                System.out.println("Debes insertar un número");
+                System.out.println("Debes insertar un número.");
                 scan.next();
             }          
             
-        } while (orden != 5);
+        } while (orden != 6);
 
         
     }

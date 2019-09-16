@@ -65,7 +65,7 @@ public abstract class Hamburguesa extends Preparar{
      * @return the id
      */
     public int getId() {
-        return id;
+        return this.id;
     }
 
     /**
@@ -94,10 +94,6 @@ public abstract class Hamburguesa extends Preparar{
         System.out.println(format);
     }
 
-    public void prepararID(){
+    //public void prepararID(int id){}
 
-    }
-
-    
-    
 }

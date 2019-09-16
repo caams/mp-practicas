@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Robot {
 
     EstadoRobot suspendido;
@@ -8,6 +11,7 @@ public class Robot {
     //boolean activo = false;
     //boolean preparando = false;
     //String pedido;
+    //ArrayList menus = new ArrayList();
     MenuArreglo menu1 = new MenuArreglo();
     MenuLista menu2 = new MenuLista();
     MenuHash menu3 = new MenuHash();
@@ -18,6 +22,9 @@ public class Robot {
         atendiendo = new Atendiendo(this);
         cocinando = new Cocinando(this);
         estadoActual = suspendido;
+        //menus.add(menu1);
+        //menus.add(menu2);
+        //menus.add(menu3);
     }
 
     public void setEventoRobot(EstadoRobot nuevoEstado) {
@@ -82,11 +89,12 @@ public class Robot {
         "\n|        2. Atender              |" +//Atiende al cliente
         "\n|        3. Ver menú             |" +
         "\n|        4. Ordenar              |" +//Cocina la opción elegida por el cliente
-        "\n|        5. Exit                 |" +
+        "\n|        5. Suspender            |" +
+        "\n|        6. Exit                 |" +
         "\n==================================" 
         );
-        System.out.print("\nOpción: ");
-        
+        System.out.print("\nOpción: ");     
+    
                 
     }
 
@@ -96,4 +104,35 @@ public class Robot {
         menu3.menuDeLujo();
 
     }
+
+    public Hamburguesa prepararHamburguesa(int id) {
+        if (id <= 3) {
+            Iterator<Hamburguesa> menuB = menu1.createIterator();
+            while (menuB.hasNext()) {
+                Hamburguesa ham = menuB.next();
+                if(ham.getID() == id)
+                    return ham;
+            }
+        }
+        else if (id > 3 && id < 11) {
+            Iterator<Hamburguesa> menuD = menu2.createIterator();
+            while (menuD.hasNext()) {
+                Hamburguesa ham = menuD.next();
+                if(ham.getID() == id)
+                    return ham;
+            }
+        }
+        else if (id < 14 && id > 10) {
+            Iterator<Hamburguesa> menuL = menu3.createIterator();
+            while (menuL.hasNext()) {
+                Hamburguesa ham = menuL.next();
+                if(ham.getID() == id)
+                    return ham;
+            }
+        }else{
+        System.out.println("\nID inválido.");
+        return null;
+        }
+    }
+    
 }
