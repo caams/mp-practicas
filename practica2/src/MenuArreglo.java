@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class MenuArreglo implements Menu{
+public class MenuArreglo {
 
     Hamburguesa[] menu = new Hamburguesa[3];
     //Iterable<Hamburguesa> iterable = Arrays.asList(menu);

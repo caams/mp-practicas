@@ -9,7 +9,7 @@ public class Robot {
     EstadoRobot cocinando;
     EstadoRobot estadoActual;
     //boolean activo = false;
-    //boolean preparando = false;
+    boolean preparando = false;
     //String pedido;
     //ArrayList menus = new ArrayList();
     MenuArreglo menu1 = new MenuArreglo();
@@ -36,14 +36,14 @@ public class Robot {
         this.activo = activo;
     }
     
-    public boolean getPreparando() {
-        return preparando;
-    }
-
     public void setPedido(String pedido) {
         this.pedido = pedido;
-    }
-    */
+    }*/
+
+    public boolean getPreparando() {
+        return preparando;
+    }  
+    
 
     public EstadoRobot getSuspendido() {
         return suspendido;
@@ -111,8 +111,9 @@ public class Robot {
             while (menuB.hasNext()) {
                 Hamburguesa ham = menuB.next();
                 if(ham.getId() == id){
-                    ham.rutinaCoccion();
-                    
+                    ham.preparar();
+                    ham.entregarOrden();
+                    this.preparando = false;
                 }
             }
         }
@@ -121,8 +122,9 @@ public class Robot {
             while (menuD.hasNext()) {
                 Hamburguesa ham = menuD.next();
                 if(ham.getId() == id){
-                    ham.rutinaCoccion();
-            
+                    ham.preparar();
+                    ham.entregarOrden();
+                    this.preparando = false;
                 }
             }
         }
@@ -131,12 +133,14 @@ public class Robot {
             while (menuL.hasNext()) {
                 Hamburguesa ham = menuL.next();
                 if(ham.getId() == id){
-                    ham.rutinaCoccion();
+                    ham.preparar();
+                    ham.entregarOrden();
+                    this.preparando = false;
                 }
             }
         }else{
         System.out.println("\nID inválido.");
-        
+        this.preparando = false;
         }
     }
     

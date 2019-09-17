@@ -25,21 +25,19 @@ public class Cocinando implements EstadoRobot {
     @Override 
     public void atender() {
         System.out.println("No puedo pedir otra orden mientras cocino.");
-        /*
+        
         if (!robot.getPreparando()) {
             robot.setEventoRobot(robot.getAtendiendo());
         }
-        */
+        
     }
 
     @Override 
     public void cocinar(int pedido) {
-        System.out.println("Empezando a preparar hamburguesa. \nRobot cocinando [ -c°▥°]-c");
+        robot.preparando = true;
+        System.out.println("Empezando a preparar hamburguesa. \nRobot preparando hamburguesa [ -c°▥°]-c");
         robot.prepararHamburguesa(pedido);
-    }
-
-    public void entregarOrden(){
-
+        robot.setEventoRobot(robot.getSuspendido());
     }
 
 }

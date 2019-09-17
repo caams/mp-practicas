@@ -5,7 +5,7 @@ import java.util.Iterator;
 /**
  * Menú de Lujo utilizando Hashtable
  */
-public class MenuHash implements Menu{
+public class MenuHash {
 
     int key;
     Hashtable<Integer, Hamburguesa> menu = new Hashtable<>();

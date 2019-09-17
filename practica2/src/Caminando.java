@@ -33,6 +33,7 @@ public class Caminando implements EstadoRobot {
     @Override 
     public void cocinar(int pedido) {
         System.out.println("No puedo cocinar mientras camino, sería muy peligroso.");
+        return;
     }
 
 }

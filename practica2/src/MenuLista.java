@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Random;
 
-public class MenuLista implements Menu{
+public class MenuLista {
 
     ArrayList<Hamburguesa> menu = new ArrayList<Hamburguesa>();
     

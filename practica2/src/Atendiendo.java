@@ -29,10 +29,10 @@ public class Atendiendo implements EstadoRobot {
 
     @Override 
     public void cocinar(int pedido) {
-        System.out.println("Así que ya estás listo para ordenar, ¿qué deseas que prepare?");
+        System.out.println("Así que ya estás listo para ordenar. \nRobot cocinando [ -c°▥°]-c");
         //menu.setId(pedido);
         //menu.rutinaCoccion();
-        robot.leerMenu();
+        //robot.leerMenu();
         robot.setEventoRobot(robot.getCocinando());
     }
 
