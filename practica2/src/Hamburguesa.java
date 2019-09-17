@@ -32,16 +32,40 @@ public abstract class Hamburguesa extends Preparar{
     public void setEsVegetariana(boolean esVegetariana) {
         this.esVegetariana = esVegetariana;
     }
-
+    
+    /**
+     * @param id the id to set
+     */
     public void setId(int id) {
         this.id = id;
     }
-    
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * @param descripcion the descripcion to set
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    /**
+     * @param precio the precio to set
+     */
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
     /**
      * @return the id
      */
     public int getId() {
-        return id;
+        return this.id;
     }
 
     /**
@@ -70,6 +94,18 @@ public abstract class Hamburguesa extends Preparar{
         System.out.println(format);
     }
 
+    public void entregarOrden(){
+        System.out.println("Te hago entrega de la " + this.getNombre());
+        //getHamburguesa();
+    }
+
+    public void preparar() {
+        super.rutinaCoccion();
+    }
+
+    //public void prepararID(int id){}
+
     
-    
+	
+
 }

@@ -6,21 +6,33 @@ public class Suspendido implements EstadoRobot{
         robot = nuevoRobot;
     }
 
-    @Override public void suspenderse() {
+    @Override
+    public void activarse() {
+        System.out.println("Robot activado. [ -c°▥°]-c" +
+                           "\nMe has activado y ahora estoy caminando.");
+        robot.setEventoRobot(robot.getCaminando());
+        //robot.setRobotActivo(true);
+    }
+
+    @Override 
+    public void suspenderse() {
         System.out.println("Ya estoy suspendido.");
     }
 
-    @Override public void caminar() {
-        System.out.println("Caminando...");
-        robot.setEventoRobot(robot.getCaminando());
-        robot.setRobotActivo(true);
+    @Override 
+    public void caminar() {
+        System.out.println("No puedo caminar mientras estoy suspendido.");
+        //robot.setEventoRobot(robot.getCaminando());
+        //robot.setRobotActivo(true);
     }
 
-    @Override public void pedirOrden(int pedido) {
+    @Override 
+    public void atender() {
         System.out.println("No puedo pedir ordenes mientras estoy suspendido.");
     }
 
-    @Override public void cocinar(int pedido) {
+    @Override 
+    public void cocinar(int pedido) {
         System.out.println("No puedo cocinar mientras estoy suspendido.");
     }
 

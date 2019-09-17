@@ -8,16 +8,29 @@ public class MenuArreglo {
     
     public void menuBasico(){
 
-        Iterable<Hamburguesa> iterable = Arrays.asList(menu);
-        Iterator<Hamburguesa> it = iterable.iterator();
         menu[0] = new HamburguesaSencilla();
         menu[1] = new HamburguesaVegetariana();
         menu[2] = new HamburguesaSinQueso();
+
+        Iterable<Hamburguesa> iterable = Arrays.asList(menu);
+        Iterator<Hamburguesa> it = iterable.iterator();
         
         System.out.println(String.format("|%-30s|", "Menú Basico"));
         while(it.hasNext()){
             it.next().getHamburguesa();
         }
+    }
+
+    //@Override
+    public Iterator<Hamburguesa> createIterator() {
+        menu[0] = new HamburguesaSencilla();
+        menu[1] = new HamburguesaVegetariana();
+        menu[2] = new HamburguesaSinQueso();
+
+        Iterable<Hamburguesa> iterable = Arrays.asList(menu);
+        Iterator<Hamburguesa> it = iterable.iterator();
+
+        return it;
     }
 
 }
