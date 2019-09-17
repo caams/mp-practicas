@@ -12,12 +12,17 @@ public class Practica2 {
         Robot robocop = new Robot();   
         int orden;
 
+        System.out.println("Esto es McHamburguesas, diponemos de un robot a tu servicio."
+                         + "\nEl estado inicial del robot es suspendido." +
+                         "\nInteractúa con el robot utilizando el menú."
+                         );
+
         try {
 
             do {
                 robocop.display();
                 orden = scan.nextInt();
-                
+                                
                     switch (orden) {
                         case 1:
                             robocop.activarse();
